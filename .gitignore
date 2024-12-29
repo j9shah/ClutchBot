@@ -1,0 +1,14 @@
+# ignore virtual environments
+venv/
+
+# ignore system files
+.DS_Store
+Thumbs.db
+
+# ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# ignore other files or folders you don’t want to push
+REMOVED
