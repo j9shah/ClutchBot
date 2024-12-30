@@ -1,24 +1,26 @@
 import discord
 from discord.ext import commands
+import os
 
-# intents setup
+# Define intents (required for bot)
 intents = discord.Intents.default()
+intents.messages = True
 intents.message_content = True
 
-# create bot
+# Initialize bot
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# event: bot is ready
+# Load cogs (commands)
 @bot.event
 async def on_ready():
-    print(f"{bot.user} is now running!")
-    print("Bot is ready and listening for commands...")
+    print(f"Logged in as {bot.user}")
+    for filename in os.listdir('./commands'):
+        if filename.endswith('.py'):
+            try:
+                await bot.load_extension(f'commands.{filename[:-3]}')
+                print(f"Loaded extension: {filename}")
+            except Exception as e:
+                print(f"Failed to load extension {filename}: {e}")
 
-# command: ping
-@bot.command()
-async def ping(ctx):
-    print(f"Ping command received in channel: {ctx.channel}")
-    await ctx.send("Pong!")
-
-# run bot
+# Run bot
 bot.run("REMOVED")
