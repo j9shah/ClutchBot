@@ -1,6 +1,8 @@
 import requests
+from dotenv import load_dotenv
+import os
 
-API_KEY = "REMOVED"
+API_KEY = os.getenv("API_KEY")
 HEADERS = {"Authorization": API_KEY}
 
 BASE_URL = "https://api.balldontlie.io/v1"
