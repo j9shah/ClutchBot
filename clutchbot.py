@@ -1,16 +1,23 @@
 import discord
 from discord.ext import commands
 import os
+from dotenv import load_dotenv 
 
-# Define intents (required for bot)
+# load environment variables from .env
+load_dotenv()
+
+# get the bot token from the environment
+TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+
+# define intents (required for bot)
 intents = discord.Intents.default()
 intents.messages = True
 intents.message_content = True
 
-# Initialize bot
+# initialize bot
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# Load cogs (commands)
+# load cogs (commands)
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
@@ -22,5 +29,5 @@ async def on_ready():
             except Exception as e:
                 print(f"Failed to load extension {filename}: {e}")
 
-# Run bot
-bot.run("REMOVED")
+# run bot
+bot.run(TOKEN)

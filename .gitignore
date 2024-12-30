@@ -11,4 +11,4 @@ __pycache__/
 *.pyo
 
 # ignore other files or folders you don’t want to push
-REMOVED
+.env
