@@ -15,17 +15,17 @@ ClutchBot is a Discord bot built to deliver NBA data and game predictions direct
 
 - **Python**: Core programming language.
 - **Discord.py**: Framework for bot development.
-- **scikit-learn**: Algorithm for predictions.
+- **scikit-learn**: Used logistic regression for game outcome predictions.
 - **Pandas**: Data preprocessing and analysis.
 - **balldontlie API**: NBA data source.
 
 ---
 
-![image](https://github.com/user-attachments/assets/7deba7bf-b08a-4a06-8238-5d331a019679)
+![image](https://github.com/user-attachments/assets/4aa7891a-18aa-47ad-a247-a8175636f435)
 
-![image](https://github.com/user-attachments/assets/d4491f66-a1a1-4c2f-af7d-43535c5b087f)
+![image](https://github.com/user-attachments/assets/26e95f5d-77d6-47f9-a0f0-a1ef219e7e1e)
 
-![image](https://github.com/user-attachments/assets/b87b7e33-c774-44aa-8ebc-29603c5cd617)
+![image](https://github.com/user-attachments/assets/11672269-62a0-4823-9af9-f3870cf5aadb)
 
 ---
 
