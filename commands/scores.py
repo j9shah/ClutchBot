@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from datetime import datetime
+from datetime import datetime  # Import datetime for date handling
 from utils.api_handler import fetch_scores
 
 class Scores(commands.Cog):
@@ -12,7 +12,7 @@ class Scores(commands.Cog):
     @commands.command(aliases=["games"])
     async def scores(self, ctx):
         """Fetch today's NBA scores."""
-        today = datetime.now().strftime('%Y-%m-%d')
+        today = datetime.now().strftime('%Y-%m-%d')  # Get today's date
         games_data = fetch_scores(today)
 
         if not games_data or not games_data["data"]:
@@ -20,9 +20,15 @@ class Scores(commands.Cog):
             return
 
         message = "**Today's NBA Games:**\n"
-        for game in games_data["data"]:
-            message += (f"{game['home_team']['full_name']} ({game['home_team_score']}) vs "
-                        f"{game['visitor_team']['full_name']} ({game['visitor_team_score']}) - {game['status']}\n")
+        for idx, game in enumerate(games_data["data"], start=1):
+            home_team = game['home_team']['full_name']
+            visitor_team = game['visitor_team']['full_name']
+            home_score = game['home_team_score']
+            visitor_score = game['visitor_team_score']
+
+            message += (
+                f"{idx}. {home_team} ({home_score}) vs {visitor_team} ({visitor_score})\n"
+            )
         await ctx.send(message)
 
 async def setup(bot):

@@ -16,7 +16,7 @@ class Help(commands.Cog):
             "**ClutchBot Commands:**\n"
             "1. `!scores` or `!games`: Fetch scores of recent games.\n"
             "2. `!teams`: List all NBA teams.\n"
-            "3. `!players <name>`: Fetch player details.\n"
+            "3. `!player <name>`: Fetch player details.\n"
             "4. `!predict <team1> <team2>`: Predict the outcome of a game between two teams.\n"
             "5. `!bothelp` or `!commands`: Display this help message."
         )
