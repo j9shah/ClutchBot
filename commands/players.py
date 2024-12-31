@@ -14,13 +14,13 @@ class Players(commands.Cog):
         Fetch information about an NBA player by name or ID.
         If multiple names are given, use the last name for the search.
         """
-        if name.isdigit():  # If the input is numeric, treat it as an ID
+        if name.isdigit():  # if the input is numeric, treat it as ID
             player_data = fetch_player(name)
             if not player_data:  # API returned no player
                 await ctx.send(f"No player found with ID '{name}'. Please try another ID.")
                 return
 
-            # Handle player object (ID search)
+            # handle player object (ID search)
             player = player_data
             height = player.get("height", "Height not available")
             weight = player.get("weight", "N/A lbs")
@@ -34,7 +34,7 @@ class Players(commands.Cog):
             )
             await ctx.send(message)
 
-        else:  # Otherwise, treat it as a name search
+        else:
             # Use the last word in the input as the search term
             name = name.split()[-1]
 

@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from datetime import datetime  # Import datetime for date handling
+from datetime import datetime
 from utils.api_handler import fetch_scores
 
 class Scores(commands.Cog):
@@ -12,7 +12,7 @@ class Scores(commands.Cog):
     @commands.command(aliases=["games"])
     async def scores(self, ctx):
         """Fetch today's NBA scores."""
-        today = datetime.now().strftime('%Y-%m-%d')  # Get today's date
+        today = datetime.now().strftime('%Y-%m-%d')
         games_data = fetch_scores(today)
 
         if not games_data or not games_data["data"]:

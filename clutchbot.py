@@ -33,7 +33,7 @@ async def on_ready():
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send("Command not found. Use `!help` for a list of commands.")
+        await ctx.send("Command not found. Use `!bothelp` for a list of commands.")
         logging.warning(f"Command not found: {ctx.message.content}")
     elif isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Missing argument. Please check the command format.")
