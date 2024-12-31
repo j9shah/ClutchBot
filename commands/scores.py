@@ -9,7 +9,7 @@ class Scores(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(aliases=["games"])
     async def scores(self, ctx):
         """Fetch today's NBA scores."""
         today = datetime.now().strftime('%Y-%m-%d')

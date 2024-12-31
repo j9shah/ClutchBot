@@ -1,4 +1,5 @@
 import discord
+import logging
 from discord.ext import commands
 import os
 from dotenv import load_dotenv 
@@ -28,6 +29,18 @@ async def on_ready():
                 print(f"Loaded extension: {filename}")
             except Exception as e:
                 print(f"Failed to load extension {filename}: {e}")
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("Command not found. Use `!help` for a list of commands.")
+        logging.warning(f"Command not found: {ctx.message.content}")
+    elif isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Missing argument. Please check the command format.")
+        logging.warning(f"Missing argument in command: {ctx.message.content}")
+    else:
+        await ctx.send("An unexpected error occurred. Please try again later.")
+        logging.error(f"Unexpected error: {error}")
 
 # run bot
 bot.run(TOKEN)
