@@ -7,8 +7,8 @@ class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=["commands"])
-    async def help(self, ctx):
+    @commands.command(name="bothelp", aliases=["commands", "assist"])
+    async def bothelp(self, ctx):
         """
         Display a list of all available bot commands.
         """
@@ -18,7 +18,7 @@ class Help(commands.Cog):
             "2. `!teams`: List all NBA teams.\n"
             "3. `!players <name>`: Fetch player details.\n"
             "4. `!predict <team1> <team2>`: Predict the outcome of a game between two teams.\n"
-            "5. `!help` or `!commands`: Display this help message."
+            "5. `!bothelp` or `!commands`: Display this help message."
         )
         await ctx.send(help_message)
 
